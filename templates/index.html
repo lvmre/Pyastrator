@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyCanvaApp</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>MyCanvaApp</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Templates</a></li>
+                <li><a href="#">Help</a></li>
+            </ul>
+        </nav>
+        <div class="user-controls">
+            <button id="save-btn">Save</button>
+            <button id="export-btn">Export</button>
+        </div>
+    </header>
+    
+    <div class="app-container">
+        <aside class="toolbar">
+            <div class="tool-section">
+                <h3>Tools</h3>
+                <div class="tool-items">
+                    <button class="tool-btn" id="select-tool"><i class="fas fa-mouse-pointer"></i></button>
+                    <button class="tool-btn" id="pen-tool"><i class="fas fa-pen"></i></button>
+                    <button class="tool-btn" id="shape-tool"><i class="fas fa-shapes"></i></button>
+                    <button class="tool-btn" id="text-tool"><i class="fas fa-font"></i></button>
+                    <button class="tool-btn" id="image-tool"><i class="fas fa-image"></i></button>
+                </div>
+            </div>
+            
+            <div class="tool-section">
+                <h3>Properties</h3>
+                <div class="properties-panel">
+                    <div class="property">
+                        <label for="fill-color">Fill Color</label>
+                        <input type="color" id="fill-color" value="#ffffff">
+                    </div>
+                    <div class="property">
+                        <label for="stroke-color">Stroke Color</label>
+                        <input type="color" id="stroke-color" value="#000000">
+                    </div>
+                    <div class="property">
+                        <label for="stroke-width">Stroke Width</label>
+                        <input type="range" id="stroke-width" min="1" max="20" value="1">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tool-section">
+                <h3>Layers</h3>
+                <ul id="layers-list">
+                    <li class="layer active">Layer 1</li>
+                    <li class="layer">Layer 2</li>
+                </ul>
+                <div class="layer-controls">
+                    <button id="add-layer"><i class="fas fa-plus"></i></button>
+                    <button id="remove-layer"><i class="fas fa-minus"></i></button>
+                </div>
+            </div>
+        </aside>
+        
+        <main class="canvas-area">
+            <div class="canvas-container">
+                <canvas id="main-canvas" width="800" height="600"></canvas>
+            </div>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 MyCanvaApp</p>
+    </footer>
+    
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>

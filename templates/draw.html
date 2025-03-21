@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Canvas - Pyastrator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo">Pyastrator</div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#">File</a></li>
+                <li><a href="#">Edit</a></li>
+                <li><a href="#">View</a></li>
+                <li><a href="#">Help</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="app-container">
+        <!-- Left Toolbar -->
+        <div class="toolbar left-toolbar">
+            <div class="tool-group">
+                <button class="tool-btn" id="select-tool" title="Select">
+                    <span class="tool-icon">◻</span>
+                </button>
+                <button class="tool-btn" id="pen-tool" title="Pen">
+                    <span class="tool-icon">✏️</span>
+                </button>
+                <button class="tool-btn" id="shape-tool" title="Shapes">
+                    <span class="tool-icon">⬜</span>
+                </button>
+                <button class="tool-btn" id="text-tool" title="Text">
+                    <span class="tool-icon">T</span>
+                </button>
+                <button class="tool-btn" id="eraser-tool" title="Eraser">
+                    <span class="tool-icon">🧽</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Canvas Container -->
+        <div id="canvas-container">
+            <canvas id="design-canvas" width="800" height="600"></canvas>
+        </div>
+
+        <!-- Properties Panel -->
+        <div class="properties-panel">
+            <h3>Properties</h3>
+            <div class="property-group">
+                <label for="stroke-color">Stroke Color:</label>
+                <input type="color" id="stroke-color" value="#000000">
+            </div>
+            <div class="property-group">
+                <label for="fill-color">Fill Color:</label>
+                <input type="color" id="fill-color" value="#ffffff">
+            </div>
+            <div class="property-group">
+                <label for="stroke-width">Stroke Width:</label>
+                <input type="range" id="stroke-width" min="1" max="20" value="2">
+                <span id="stroke-width-value">2px</span>
+            </div>
+            <div class="property-group">
+                <label for="opacity">Opacity:</label>
+                <input type="range" id="opacity" min="0" max="100" value="100">
+                <span id="opacity-value">100%</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/draw.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/toolbar.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>

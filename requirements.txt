@@ -1,0 +1,24 @@
+# Project dependencies for MyCanvaApp
+Flask>=2.0.0
+
+# Database
+SQLAlchemy>=1.4.0       # SQL ORM
+Flask-SQLAlchemy>=2.5.0 # Flask integration for SQLAlchemy
+Flask-Migrate>=3.0.0    # Database migrations
+psycopg2-binary>=2.9.0  # PostgreSQL driver
+pymysql>=1.0.0          # MySQL driver
+
+# Authentication and security
+Flask-Login>=0.5.0      # User session management
+Flask-Bcrypt>=0.7.1     # Password hashing
+PyJWT>=2.0.0            # JSON Web Token implementation
+Flask-WTF>=1.0.0        # Form validation and CSRF protection
+
+# Web server
+gunicorn>=20.1.0        # Production WSGI server
+
+# Utilities
+python-dotenv>=0.19.0   # Environment variable management
+Flask-Caching>=1.10.0   # Caching support
+Flask-Cors>=3.0.10      # Cross-Origin Resource Sharing
+requests>=2.26.0        # HTTP library
