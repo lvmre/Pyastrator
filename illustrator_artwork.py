@@ -6,13 +6,12 @@ def create_circle(doc, center_x, center_y, radius):
     Creates a circle (as an ellipse with equal width and height) in the document.
     Illustrator’s Ellipse method takes the top, left, width, and height of the bounding box.
     """
-    # Calculate the top and left for the bounding box
-    top = center_y + radius  # top is the y-coordinate of the top of the bounding rectangle
+    top = center_y + radius   # top is the y-coordinate of the bounding rectangle
     left = center_x - radius  # left is the x-coordinate of the left of the bounding rectangle
     circle = doc.PathItems.Ellipse(top, left, 2 * radius, 2 * radius)
     circle.Filled = True
-    # Assign the first swatch's color as the fill color
-    circle.FillColor = doc.Swatches.Item(0).Color
+    # Use the first available swatch; Illustrator uses 1-based indexing
+    circle.FillColor = doc.Swatches.Item(1).Color
     return circle
 
 def create_rectangle(doc, top, left, width, height):
@@ -22,7 +21,7 @@ def create_rectangle(doc, top, left, width, height):
     """
     rect = doc.PathItems.Rectangle(top, left, width, height)
     rect.Filled = True
-    rect.FillColor = doc.Swatches.Item(0).Color
+    rect.FillColor = doc.Swatches.Item(1).Color
     return rect
 
 def create_triangle(doc, center_x, center_y, radius):
@@ -32,7 +31,7 @@ def create_triangle(doc, center_x, center_y, radius):
     """
     triangle = doc.PathItems.Polygon(center_x, center_y, radius, 3)
     triangle.Filled = True
-    triangle.FillColor = doc.Swatches.Item(0).Color
+    triangle.FillColor = doc.Swatches.Item(1).Color
     return triangle
 
 def create_artwork(prompt):
@@ -56,7 +55,6 @@ def create_artwork(prompt):
     # Create a rectangle if mentioned in the prompt
     if "rectangle" in prompt_lower:
         print("Creating a rectangle...")
-        # Create a rectangle with a width of 150 and height of 100.
         create_rectangle(doc, top=400, left=200, width=150, height=100)
     
     # Create a triangle if mentioned in the prompt
@@ -67,6 +65,5 @@ def create_artwork(prompt):
     print("Artwork created based on prompt:", prompt)
 
 if __name__ == "__main__":
-    # Request an artwork description from the user.
     prompt = input("Enter artwork description (include keywords like circle, rectangle, triangle): ")
     create_artwork(prompt)
